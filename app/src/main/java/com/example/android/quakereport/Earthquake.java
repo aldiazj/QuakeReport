@@ -6,45 +6,57 @@ package com.example.android.quakereport;
  */
 public class Earthquake {
     // Magnitude of the earthquake (e.g. 4.1, 6,7)
-    private String mMagnitude;
+    private double mMagnitude;
 
     // Place where the earthquake occurred (e.g. San Francisco, London, Tokyo)
-    private String mPlace;
+    private String mLocation;
 
-    // Date where the earthquake occurred (e.g. Feb 2 2016, Aug 15 1915)
-    private String mDate;
+    /** Time of the earthquake */
+    private long mTimeInMilliseconds;
+
+    // URL whit the earthquake's info
+    private String mUrl;
 
     /**
-     * Create a new Earthquake object
+     * Constructs a new {@link Earthquake} object.
      *
-     * @param vMag is the magnitude of the earthquake (e.g. 4.1, 6,7)
-     * @param vPlace is the place where the earthquake occurred (e.g. San Francisco, London, Tokyo)
-     * @param vDate is the date where the earthquake occurred (e.g. Feb 2 2016, Aug 15 1915)
+     * @param magnitude is the magnitude (size) of the earthquake
+     * @param location is the city location of the earthquake
+     * @param timeInMilliseconds is the time in milliseconds (from the Epoch) when the
+     * @param earthquakeUrl is the web page where the earthquake's info is
      */
-    public Earthquake(String vMag, String vPlace, String vDate) {
-        mMagnitude = vMag;
-        mPlace = vPlace;
-        mDate = vDate;
+    public Earthquake(double magnitude, String location, long timeInMilliseconds, String earthquakeUrl) {
+        mMagnitude = magnitude;
+        mLocation = location;
+        mTimeInMilliseconds = timeInMilliseconds;
+        mUrl = earthquakeUrl;
     }
 
     /**
      * @return magnitude of the earthquake
      */
-    public String getMagnitude() {
+    public double getMagnitude() {
         return mMagnitude;
     }
 
     /**
      * @return place where the earthquake occurred
      */
-    public String getPlace() {
-        return mPlace;
+    public String getLocation() {
+        return mLocation;
     }
 
     /**
-     * @return date where the earthquake occurred
+     * @return the time of the earthquake.
      */
-    public String getDate() {
-        return mDate;
+    public long getTimeInMilliseconds() {
+        return mTimeInMilliseconds;
+    }
+
+    /**
+     * @return the URL of the earthquake.
+     */
+    public String getUrl() {
+        return mUrl;
     }
 }
